@@ -22,3 +22,24 @@ mkdir -p ${HOME}/.config/docker
 mkdir -p ${MNT_PERSIST_USER_DOCKER}
 echo "{ \"data-root\": \"${MNT_PERSIST_USER_DOCKER}\" }" > ${HOME}/.config/docker/daemon.json
 
+#------------------------------------------------
+# 3. Install RootLess Docker mode
+#------------------------------------------------
+dockerd-rootless-setuptool.sh install
+
+# 4. export XDG Runtime stuff
+XDG_CURRENT_RUNTIME_DIR=`cat ~/.bashrc | grep XDG_RUNTIME_DIR`
+if [ -z "${XDG_CURRENT_RUNTIME_DIR}" ]; then
+    echo "Exporting XDG_RUNTIME_DIR into ~/.bashrc"
+
+    echo "" >> ~/.bashrc
+    echo "# Rootless docker setup" >> ~/.bashrc
+    echo "export XDG_RUNTIME_DIR=/run/user/\$(id -u)" >> ~/.bashrc
+    echo "export PATH=/usr/bin:\$PATH" >> ~/.bashrc
+    echo "export DOCKER_HOST=unix://\$XDG_RUNTIME_DIR/docker.sock" >> ~/.bashrc
+    echo "" >> ~/.bashrc
+fi
+
+# Start docker
+systemctl --user enable docker
+systemctl --user start docker
