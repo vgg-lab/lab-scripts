@@ -27,7 +27,7 @@ fi
 
 # Setup home mount
 NFS_MOUNT_HOME=`cat /etc/fstab | grep /home`
-if [ -z "${NFS_MOUNT_DATA}" ]; then
+if [ -z "${NFS_MOUNT_HOME}" ]; then
     echo "Setting up mount /home."
 
     sudo echo "" >> /etc/fstab
