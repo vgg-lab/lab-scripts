@@ -13,6 +13,13 @@ rm get-docker.sh
 # 2. install rootless docker stuff
 sudo apt-get install -y docker-ce-rootless-extras uidmap
 
+# 1. Vygenerovat IDcka
+LINECOUNT=`cat /etc/subuid | wc -l`
+if (( LINECOUNT < 1000)); then
+    echo "Generating user IDs..."
+    sudo python3 genids.py
+fi
+
 
 # 3. Start on boot
 sudo systemctl enable containerd
