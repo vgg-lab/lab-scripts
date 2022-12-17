@@ -16,11 +16,13 @@ fi
 # Prepare persist user folder
 if [ ! -d ${MNT_PERSIST_USER} ]; then
     mkdir ${MNT_PERSIST_USER}
+    chmod 755 ${MNT_PERSIST_USER}
 fi
 
 # Prepare persist user folder
 if [ ! -d ${MNT_SCRATCH_USER} ]; then
     mkdir ${MNT_SCRATCH_USER}
+    chmod 755 ${MNT_SCRATCH_USER}
 fi
 
 # 2. Pripravit config a folder na docker
