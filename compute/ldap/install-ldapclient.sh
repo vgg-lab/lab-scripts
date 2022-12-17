@@ -17,3 +17,4 @@ if [ ! -f "${TARGET_FILE}"]; then
     sudo chown root:users ${TARGET_FILE}
 fi
 sudo cp ldap.conf /etc/ldap/ldap.conf
+sudo cp sshd_config /etc/ssh/sshd_config
