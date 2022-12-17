@@ -20,6 +20,9 @@ if (( LINECOUNT < 1000)); then
     sudo python3 genids.py
 fi
 
+sudo cp setup-rootless-docker.sh /usr/local/bin
+
+
 
 # 3. Start on boot
 sudo systemctl enable containerd
