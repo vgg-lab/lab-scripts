@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NFS_HOST=vggnas.fiit.stuba.sk
+NFS_HOST=nas.vgg.lab
 SRV_HOME=/srv/home
 
 # Setup data mount
@@ -20,8 +20,8 @@ fi
 sudo mkdir -m 755 -p ${SRV_HOME}
 TARGET_HOME=${SRV_HOME}/${USER}
 if [ ! -d ${TARGET_HOME} ]; then
-    echo "Moving ${HOME}/${USER} -> ${TARGET_HOME}"
-    sudo mv ${HOME}/${USER} ${TARGET_HOME}
+    echo "Moving ${HOME} -> ${TARGET_HOME}"
+    sudo mv ${HOME} ${TARGET_HOME}
     sudo usermod -d ${TARGET_HOME} ${USER}
 fi
 
