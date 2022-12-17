@@ -4,6 +4,7 @@ MNT_PERSIST=/mnt/persist
 MNT_SCRATCH=/mnt/scratch
 
 MNT_PERSIST_USER=${MNT_PERSIST}/${USER}
+MNT_SCRATCH_USER=${MNT_SCRATCH}/${USER}
 MNT_PERSIST_USER_DOCKER=${MNT_PERSIST_USER}/.docker
 
 # 0. Sanity check
@@ -15,6 +16,11 @@ fi
 # Prepare persist user folder
 if [ ! -d ${MNT_PERSIST_USER} ]; then
     mkdir ${MNT_PERSIST_USER}
+fi
+
+# Prepare persist user folder
+if [ ! -d ${MNT_SCRATCH_USER} ]; then
+    mkdir ${MNT_SCRATCH_USER}
 fi
 
 # 2. Pripravit config a folder na docker
