@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+sudo apt-get install -y nfs-common
+
 NFS_HOST=nas.vgg.lab
 SRV_HOME=/srv/home
 
@@ -9,8 +12,11 @@ NFS_MOUNT_DATA=`cat /etc/fstab | grep /mnt/nfs-data`
 if [ -z "${NFS_MOUNT_DATA}" ]; then
     echo "Setting up mount /mnt/nfs-data."
 
-    sudo echo "" >> /etc/fstab
-    sudo echo "${NFS_HOST}:/volume1/nfs-data /mnt/nfs-data nfs defaults 0 0" >> /etc/fstab
+    cp /etc/fstab fstab
+    echo "" >> fstab
+    echo "${NFS_HOST}:/volume1/nfs-data /mnt/nfs-data nfs defaults 0 0" >> fstab
+    sudo cp fstab /etc/fstab
+    rm fstab
 
     # Mount the data folder!
     sudo mount /mnt/nfs-data
@@ -30,10 +36,13 @@ NFS_MOUNT_HOME=`cat /etc/fstab | grep /home`
 if [ -z "${NFS_MOUNT_HOME}" ]; then
     echo "Setting up mount /home."
 
-    sudo echo "" >> /etc/fstab
-    sudo echo "${NFS_HOST}:/volume1/nfs-homes /home nfs auto,_netdev,nolock 0 0" >> /etc/fstab
+    cp /etc/fstab fstab
+    echo "" >> fstab
+    sudo echo "${NFS_HOST}:/volume1/nfs-homes /home nfs auto,_netdev,nolock 0 0" >> fstab
+    sudo cp fstab /etc/fstab
+    rm fstab
 
-    # Mount the home folder!
-    sudo mount /home
+    echo ""
+    echo "Remember to mount /home !!"
 fi
 
