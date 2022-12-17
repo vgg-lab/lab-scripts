@@ -1,6 +1,9 @@
 #!/bin/bash
 
 
+sudo chmod 777 /mnt/persist
+sudo chmod 777 /mnt/scratch
+
 sudo apt-get install -y nfs-common
 
 NFS_HOST=nas.vgg.lab
@@ -23,13 +26,13 @@ if [ -z "${NFS_MOUNT_DATA}" ]; then
 fi
 
 # Move home directory to SRV
-sudo mkdir -m 755 -p ${SRV_HOME}
-TARGET_HOME=${SRV_HOME}/${USER}
-if [ ! -d ${TARGET_HOME} ]; then
-    echo "Moving ${HOME} -> ${TARGET_HOME}"
-    sudo mv ${HOME} ${TARGET_HOME}
-    sudo usermod -d ${TARGET_HOME} ${USER}
-fi
+#sudo mkdir -m 755 -p ${SRV_HOME}
+#TARGET_HOME=${SRV_HOME}/${USER}
+#if [ ! -d ${TARGET_HOME} ]; then
+#    echo "Moving ${HOME} -> ${TARGET_HOME}"
+#    sudo mv ${HOME} ${TARGET_HOME}
+#    sudo usermod -d ${TARGET_HOME} ${USER}
+#fi
 
 # Setup home mount
 NFS_MOUNT_HOME=`cat /etc/fstab | grep /home`
