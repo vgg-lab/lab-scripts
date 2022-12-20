@@ -11,6 +11,8 @@ sudo sh get-docker.sh
 rm get-docker.sh
 
 # 2. install rootless docker stuff
+sudo apt-get update
+sudo apt-get install -y nvidia-container-toolkit
 sudo apt-get install -y docker-ce-rootless-extras uidmap
 
 # 1. Vygenerovat IDcka

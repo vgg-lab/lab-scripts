@@ -36,16 +36,16 @@ echo "{ \"data-root\": \"${MNT_PERSIST_USER_DOCKER}\" }" > ${HOME}/.config/docke
 dockerd-rootless-setuptool.sh install
 
 # 4. export XDG Runtime stuff
-XDG_CURRENT_RUNTIME_DIR=`cat ~/.bashrc | grep XDG_RUNTIME_DIR`
+XDG_CURRENT_RUNTIME_DIR=`cat ~/.profile | grep XDG_RUNTIME_DIR`
 if [ -z "${XDG_CURRENT_RUNTIME_DIR}" ]; then
-    echo "Exporting XDG_RUNTIME_DIR into ~/.bashrc"
+    echo "Exporting XDG_RUNTIME_DIR into ~/.profile"
 
-    echo "" >> ~/.bashrc
-    echo "# Rootless docker setup" >> ~/.bashrc
-    echo "export XDG_RUNTIME_DIR=/run/user/\$(id -u)" >> ~/.bashrc
-    echo "export PATH=/usr/bin:\$PATH" >> ~/.bashrc
-    echo "export DOCKER_HOST=unix://\$XDG_RUNTIME_DIR/docker.sock" >> ~/.bashrc
-    echo "" >> ~/.bashrc
+    echo "" >> ~/.profile
+    echo "# Rootless docker setup" >> ~/.profile
+    echo "export XDG_RUNTIME_DIR=/run/user/\$(id -u)" >> ~/.profile
+    echo "export PATH=/usr/bin:\$PATH" >> ~/.profile
+    echo "export DOCKER_HOST=unix://\$XDG_RUNTIME_DIR/docker.sock" >> ~/.profile
+    echo "" >> ~/.profile
 fi
 
 # Start docker
