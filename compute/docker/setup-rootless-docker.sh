@@ -48,6 +48,9 @@ if [ -z "${XDG_CURRENT_RUNTIME_DIR}" ]; then
     echo "" >> ~/.profile
 fi
 
+# 5. .netrc file in home
+touch ~/.netrc
+
 # Start docker
 systemctl --user enable docker
 systemctl --user start docker
