@@ -24,6 +24,8 @@ fi
 
 sudo cp setup-rootless-docker.sh /usr/local/bin
 
+# Este cookiecutter pre vsetkych
+sudo pip install cookiecutter
 
 
 # 3. Start on boot
