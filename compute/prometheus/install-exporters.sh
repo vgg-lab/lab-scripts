@@ -1,5 +1,10 @@
 #!/bin/bash
 
+
+#--------------------------------------------------------------
+#   Node Exporter
+#--------------------------------------------------------------
+
 NODE_EXPORTER_VERSION=1.5.0
 FILENAME=node_exporter-${NODE_EXPORTER_VERSION}.linux-amd64.tar.gz
 BASENAME=node_exporter-${NODE_EXPORTER_VERSION}.linux-amd64
@@ -25,5 +30,16 @@ sudo cp node_exporter.service /etc/systemd/system/node_exporter.service
 sudo systemctl daemon-reload
 sudo systemctl start node_exporter
 
+#--------------------------------------------------------------
+#   Node Exporter
+#--------------------------------------------------------------
+
+GPU_EXPORTER_VERSION=1.1.0
+FILENAME=nvidia-gpu-exporter_${GPU_EXPORTER_VERSION}_linux_amd64.deb
+URL=https://github.com/utkuozdemir/nvidia_gpu_exporter/releases/download/v${GPU_EXPORTER_VERSION}/${FILENAME}
+
+wget ${URL}
+sudo dpkg -i ${FILENAME}
+rm ${FILENAME}
 
 
