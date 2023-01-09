@@ -41,7 +41,7 @@ if [ -z "${NFS_MOUNT_HOME}" ]; then
 
     cp /etc/fstab fstab
     echo "" >> fstab
-    sudo echo "${NFS_HOST}:/volume1/nfs-homes /home nfs auto,_netdev,nolock 0 0" >> fstab
+    sudo echo "${NFS_HOST}:/volume2/nfs-homes /home nfs auto,_netdev,nolock 0 0" >> fstab
     sudo cp fstab /etc/fstab
     rm fstab
 
