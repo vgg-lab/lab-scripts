@@ -20,10 +20,10 @@ fi
 
 # 5.15 Kernel
 if [ "${VERSION}" == "5.15" ]; then
-    wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.15-rc7/amd64/linux-headers-5.15.0-051500rc7_5.15.0-051500rc7.202110251930_all.deb
-    wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.15-rc7/amd64/linux-headers-5.15.0-051500rc7-generic_5.15.0-051500rc7.202110251930_amd64.deb
-    wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.15-rc7/amd64/linux-image-unsigned-5.15.0-051500rc7-generic_5.15.0-051500rc7.202110251930_amd64.deb
-    wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.15-rc7/amd64/linux-modules-5.15.0-051500rc7-generic_5.15.0-051500rc7.202110251930_amd64.deb
+    wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.15/amd64/linux-headers-5.15.0-051500_5.15.0-051500.202110312130_all.deb
+    wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.15/amd64/linux-headers-5.15.0-051500-generic_5.15.0-051500.202110312130_amd64.deb
+    wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.15/amd64/linux-image-unsigned-5.15.0-051500-generic_5.15.0-051500.202110312130_amd64.deb
+    wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.15/amd64/linux-modules-5.15.0-051500-generic_5.15.0-051500.202110312130_amd64.deb
 fi
 
 sudo dpkg -i *.deb
