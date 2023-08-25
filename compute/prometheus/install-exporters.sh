@@ -28,6 +28,7 @@ sudo chown node_exporter:node_exporter /usr/local/bin/node_exporter
 # Exporter service
 sudo cp node_exporter.service /etc/systemd/system/node_exporter.service
 sudo systemctl daemon-reload
+sudo systemctl enable node_exporter
 sudo systemctl start node_exporter
 
 #--------------------------------------------------------------
@@ -42,4 +43,6 @@ wget ${URL}
 sudo dpkg -i ${FILENAME}
 rm ${FILENAME}
 
+sudo systemctl enable nvidia_gpu_exporter
+sudo systemctl start nvidia_gpu_exporter
 
