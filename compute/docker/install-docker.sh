@@ -32,6 +32,7 @@ fi
 sudo cp setup-rootless-docker.sh /usr/local/bin
 
 # Este cookiecutter pre vsetkych
+sudo apt-get install -y python3-pip
 sudo pip install cookiecutter
 
 
