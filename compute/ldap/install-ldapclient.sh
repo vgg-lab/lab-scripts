@@ -19,4 +19,5 @@ fi
 sudo cp ldap.conf /etc/ldap/ldap.conf
 sudo cp sshd_config /etc/ssh/sshd_config
 
+sudo systemctl enable nscd
 sudo systemctl start nscd
